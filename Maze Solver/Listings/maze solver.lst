@@ -1,0 +1,66 @@
+C51 COMPILER V9.56.0.0   MAZE_SOLVER                                                       07/29/2017 12:10:52 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAZE_SOLVER
+OBJECT MODULE PLACED IN .\Objects\maze solver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE maze solver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\maze solver.lst) TABS(2) OBJECT(.\Objects\maze solver.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <stdio.h>
+   3          #define lt 0x06;
+   4          #define rt 0x09;
+   5          #define st 0x0a;
+   6          #define stop 0x00;
+   7          
+   8          unsigned int a,i,j;
+   9          void delay(unsigned int t)
+  10          {
+  11   1        for (i=0;i<t;i++);
+  12   1      {
+  13   2        for(j=0;j<1275;j++);
+  14   2      }
+  15   1      }
+  16          void main()
+  17          {
+  18   1        while(1)
+  19   1        {
+  20   2          
+  21   2      a=P1&0x07;
+  22   2      if(a==0x03)
+  23   2      {
+  24   3        delay(20);
+  25   3        P2=lt;
+  26   3      }
+  27   2      else if ((a==0x05)||(a==0x01))
+  28   2      {
+  29   3        P2=st;
+  30   3      }
+  31   2      else if ((a==0x02)||(a==0x06)||(a==0x04)||(a==0x07))
+  32   2      {
+  33   3        P2=rt;
+  34   3        delay(10);
+  35   3      }
+  36   2      else
+  37   2      {
+  38   3        delay(30);
+  39   3        P2=stop;
+  40   3      }
+  41   2      }
+  42   1        }                        
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    149    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
